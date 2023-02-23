@@ -4,27 +4,131 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HowToBeeGood</title>
 
     
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <link rel="stylesheet" href="style.css">
 
-    <script src="app.js"></script> 
 
 </head>
 
 <body>
 
-    <ion-app>
-    <ion-content>
+    <ion-app>  
 
+          <ion-tabs>
+
+<!--News-->
+
+            <ion-tab tab="home">
+              <ion-nav id="home-nav"></ion-nav>
+              <div id="home-page">
+                
+                <ion-content>
+                    <h1 class="ion-padding">News</h1>
         
+                    <ion-card>
+                        <ion-item lines="none">
+                            <ion-thumbnail slot="start">
+                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                              </ion-thumbnail>
+                            <ion-label>
+                              <h2>News Title</h2>
+                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
+                            </ion-label>
+                            <ion-icon name="heart-outline"></ion-icon>
+                          </ion-item>
+                    </ion-card>
+        
+                    <ion-card>
+                        <ion-item lines="none">
+                            <ion-thumbnail slot="start">
+                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                              </ion-thumbnail>
+                            <ion-label>
+                              <h2>News Title</h2>
+                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
+                            </ion-label>
+                            <ion-icon name="heart-outline"></ion-icon>
+                          </ion-item>
+                    </ion-card>
+        
+                    <ion-card>
+                        <ion-item lines="none">
+                            <ion-thumbnail slot="start">
+                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                              </ion-thumbnail>
+                            <ion-label>
+                              <h2>News Title</h2>
+                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
+                            </ion-label>
+                            <ion-icon name="heart-outline"></ion-icon>
+                          </ion-item>
+                    </ion-card>
+        
+                    <ion-card>
+                        <ion-item lines="none">
+                            <ion-thumbnail slot="start">
+                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                              </ion-thumbnail>
+                            <ion-label>
+                              <h2>News Title</h2>
+                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
+                            </ion-label>
+                            <ion-icon name="heart-outline"></ion-icon>
+                          </ion-item>
+                    </ion-card>
+        
+                </ion-content> 
+              </div>
 
-    </ion-content>
+<!--Home-->
+
+            </ion-tab>
+            <ion-tab tab="radio">
+              <ion-nav id="radio-nav"></ion-nav>
+              <div id="radio-page">
+
+                <ion-content>
+                  <div class="example-content">Radio content</div>
+                </ion-content>
+              </div>
+            </ion-tab>
+
+<!--Ideas-->
+
+            <ion-tab tab="library">
+              <ion-nav id="library-nav"></ion-nav>
+              <div id="library-page">
+
+                <ion-content>
+                  <div class="example-content">Library content</div>
+                </ion-content>
+              </div>
+            </ion-tab>
+
+            <ion-tab-bar slot="bottom">
+              <ion-tab-button tab="home">
+                <ion-icon name="newspaper-outline"></ion-icon>
+                News
+              </ion-tab-button>
+              <ion-tab-button tab="radio">
+                <ion-icon name="bug-outline"></ion-icon>
+                Home
+              </ion-tab-button>
+              <ion-tab-button tab="library">
+                <ion-icon name="sunny-outline"></ion-icon>
+                Ideas
+              </ion-tab-button>
+
+            </ion-tab-bar>
+          </ion-tabs>
+          
     </ion-app>
 
 </body>
-
+<script src="app.js"></script> 
 </html>

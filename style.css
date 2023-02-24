@@ -1,6 +1,119 @@
-.example-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
+/* Date display */
+
+#date {
+  text-align: right;
+  padding-right: 5%;
+  margin-top: -15px
+}
+
+#day {
+  text-align: right;
+  padding-right: 5%;
+  margin-top: -15px
+}
+
+
+/* Text alignment */
+
+#points-title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: -200px
+}
+
+#points-total {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+  padding-left: 20px;
+  font-size: 50px;
+}
+
+.left-padding {
+  padding-left: 10px;
+}
+
+#news-description {
+  text-align: center;
+  padding: 0 10%;
+
+}
+
+
+/* Positioning */
+
+.container {
+  position: relative;
+}
+
+#pin {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+}
+
+#good-deed-card {
+  margin-top: -29px;
+}
+
+
+/* Images */
+
+#flowers {
+  margin-top: -20px;
+  z-index: 0;
+  width: 100%;
+}
+
+
+/* Colors */
+
+.green-border {
+  border: 3px solid #53DB79;
+}
+
+ion-icon[name="heart-outline"] {
+  color: #FA7672;
+}
+
+ion-icon[name="heart"] {
+  color: #FA7672;
+}
+
+ion-icon[name="checkmark-circle-outline"] {
+  color: #53DB79;
+}
+
+ion-icon[name="checkmark-circle"] {
+  color: #53DB79;
+}
+
+
+/* Buttons */
+
+#points-button {
+  margin-top: -50px;
+
+}
+
+#open-guide-btn {
+  text-align: right;
+  font-weight: bold;
+}
+
+ion-tab-button {
+  --color-selected: black;
+}
+
+ion-tab-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Cards */
+
+ion-card {
+  border-radius: 30px;
+}

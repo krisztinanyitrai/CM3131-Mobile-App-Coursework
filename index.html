@@ -19,94 +19,212 @@
 
     <ion-app>  
 
-          <ion-tabs selectedIndex="2">
+<!--TABS-->
 
-<!--News-->
+          <ion-tabs>
+
+  <!--Home-->
 
             <ion-tab tab="home">
               <ion-nav id="home-nav"></ion-nav>
               <div id="home-page">
+                <ion-content>
+                  <h1 class="ion-padding">Home</h1>
+                  <p id="day"></p>
+                  <p id="date"></p>
+
+                  <img id="flowers" src="img/flowerfield.png">
+
+                  <h4 id="points-title" >Your Bee Good Points:</h4>
+                  <p id="points-total">0</p>
+
+                  <ion-card id="good-deed-card" class="green-border">
+                    <ion-item lines="none">
+                      <h4>Tick to add more points:</h4>
+                    </ion-item>
+
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Picked up trash</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Gave money in charity</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Donated an item</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Smiled at someone</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Helped someone</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Planted a flower</ion-label> 
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-icon name="checkmark-circle-outline"></ion-icon>
+                      <ion-label class="left-padding">Other</ion-label> 
+                    </ion-item>
+                    <p></p>
                 
-                <ion-content>
-                    <h1 class="ion-padding">News</h1>
-        
-                    <ion-card>
-                        <ion-item lines="none">
-                            <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                              </ion-thumbnail>
-                            <ion-label>
-                              <h2>News Title</h2>
-                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
-                            </ion-label>
-                            <ion-icon name="heart-outline"></ion-icon>
-                          </ion-item>
-                    </ion-card>
-        
-                    <ion-card>
-                        <ion-item lines="none">
-                            <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                              </ion-thumbnail>
-                            <ion-label>
-                              <h2>News Title</h2>
-                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
-                            </ion-label>
-                            <ion-icon name="heart-outline"></ion-icon>
-                          </ion-item>
-                    </ion-card>
-        
-                    <ion-card>
-                        <ion-item lines="none">
-                            <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                              </ion-thumbnail>
-                            <ion-label>
-                              <h2>News Title</h2>
-                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
-                            </ion-label>
-                            <ion-icon name="heart-outline"></ion-icon>
-                          </ion-item>
-                    </ion-card>
-        
-                    <ion-card>
-                        <ion-item lines="none">
-                            <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                              </ion-thumbnail>
-                            <ion-label>
-                              <h2>News Title</h2>
-                              <p class="ion-text-wrap">News details example text to give an idea about the content of it.</p>
-                            </ion-label>
-                            <ion-icon name="heart-outline"></ion-icon>
-                          </ion-item>
-                    </ion-card>
-        
-                </ion-content> 
+
+                  </ion-card>
+
+                  <ion-grid>
+                    <ion-row id="points-button">
+                      <ion-col></ion-col>
+                      <ion-col><ion-button id="add-points-btn" color="success" shape="round">+ ADD POINTS TO TOTAL</ion-button></ion-col>
+                      <ion-col></ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+                  <h2 class="left-padding">Saved</h2>
+
+                  <ion-card>
+                    <ion-item lines="none">
+                        <ion-thumbnail slot="start">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                          </ion-thumbnail>
+                        <ion-label>
+                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                        </ion-label>
+                        <ion-icon name="heart"></ion-icon>
+                      </ion-item>
+                </ion-card>
+
+                <ion-card>
+                  <ion-item lines="none">
+                      <ion-label class="ion-text-wrap"><h2>Ways to Give to Charity Without Donating Money</h2></ion-label> 
+                      <ion-icon name="heart"></ion-icon>
+                  </ion-item>
+                  <ion-item lines="none">
+                      <ion-thumbnail slot="start">
+                          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                        </ion-thumbnail>
+                      <ion-label>
+                        <p class="ion-text-wrap">Charitable giving is a great way to support a cause you trust, but you don't always need to donate money to give back.</p>
+                      </ion-label>
+                  </ion-item>
+              </ion-card>
+
+                </ion-content>  
               </div>
 
-<!--Home-->
+  <!--News-->
 
             </ion-tab>
-            <ion-tab tab="radio">
-              <ion-nav id="radio-nav"></ion-nav>
-              <div id="radio-page">
+            <ion-tab tab="news">
+              <ion-nav id="news-nav"></ion-nav>
+              <div id="news-page">
 
                 <ion-content>
-                  <div class="example-content">Home content</div>
-                </ion-content>
+                  <h1 class="ion-padding">News</h1>
+                  
+                  <p id="news-description">Here you can find recent news that might inspire you to do good.</p>
+
+                  <ion-card>
+                      <ion-item lines="none">
+                          <ion-thumbnail slot="start">
+                              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                            </ion-thumbnail>
+                          <ion-label>
+                            <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                            <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                          </ion-label>
+                          <ion-icon name="heart-outline"></ion-icon>
+                        </ion-item>
+                  </ion-card>
+      
+                  <ion-card>
+                    <ion-item lines="none">
+                        <ion-thumbnail slot="start">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                          </ion-thumbnail>
+                        <ion-label>
+                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                        </ion-label>
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </ion-item>
+                  </ion-card>
+      
+                  <ion-card>
+                    <ion-item lines="none">
+                        <ion-thumbnail slot="start">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                          </ion-thumbnail>
+                        <ion-label>
+                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                        </ion-label>
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </ion-item>
+                  </ion-card>
+        
+                  <ion-card>
+                    <ion-item lines="none">
+                        <ion-thumbnail slot="start">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                          </ion-thumbnail>
+                        <ion-label>
+                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                        </ion-label>
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </ion-item>
+                  </ion-card>
+      
+                  <ion-card>
+                    <ion-item lines="none">
+                        <ion-thumbnail slot="start">
+                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                          </ion-thumbnail>
+                        <ion-label>
+                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
+                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
+                        </ion-label>
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </ion-item>
+                  </ion-card>
+
+              </ion-content> 
+
               </div>
             </ion-tab>
 
-<!--Ideas-->
+  <!--Ideas-->
 
-            <ion-tab tab="library">
-              <ion-nav id="library-nav"></ion-nav>
-              <div id="library-page">
+            <ion-tab tab="ideas">
+              <ion-nav id="ideas-nav"></ion-nav>
+              <div id="ideas-page">
 
                 <ion-content>
                     <h1 class="ion-padding">Ideas</h1>
-        
+                    <div class="container">
+
+                      <ion-card class="green-border">
+                          <ion-item lines="none">
+                              <ion-label class="ion-text-wrap"><h2>How to <img src="img/bee-icon.png"> Good?</h2></ion-label> 
+                          </ion-item>
+                          <ion-item lines="none">
+                              <ion-label class="ion-text-wrap">Look no further! We have compiled all the ways you can have a good impact in the world in this guide. From charity options to recycling and volunteering you’ll find what kind of activity best suits you no matter your physical location, your financial background or motivation...</ion-label>
+                          </ion-item>
+                          <ion-item>
+                              <ion-label><h3 id="open-guide-btn">Start here</h3></ion-label>
+                              <ion-icon name="chevron-forward-outline"></ion-icon>
+                            </ion-item>
+                      </ion-card>
+                      <img src="img/pin-icon.png" alt="pin" id="pin">
+                    
+                    </div>
+
                     <ion-card>
                         <ion-item lines="none">
                             <ion-label class="ion-text-wrap"><h2>Ways to Give to Charity Without Donating Money</h2></ion-label> 
@@ -123,44 +241,44 @@
                     </ion-card>
 
                     <ion-card>
-                        <ion-item lines="none">
-                            <ion-label class="ion-text-wrap"><h2>Ways to Give to Charity Without Donating Money</h2></ion-label> 
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </ion-item>
-                        <ion-item lines="none">
-                            <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                              </ion-thumbnail>
-                            <ion-label>
-                              <p class="ion-text-wrap">Charitable giving is a great way to support a cause you trust, but you don't always need to donate money to give back.</p>
-                            </ion-label>
-                        </ion-item>
-                    </ion-card>
+                      <ion-item lines="none">
+                          <ion-label class="ion-text-wrap"><h2>Ways to Give to Charity Without Donating Money</h2></ion-label> 
+                          <ion-icon name="heart-outline"></ion-icon>
+                      </ion-item>
+                      <ion-item lines="none">
+                          <ion-thumbnail slot="start">
+                              <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                            </ion-thumbnail>
+                          <ion-label>
+                            <p class="ion-text-wrap">Charitable giving is a great way to support a cause you trust, but you don't always need to donate money to give back.</p>
+                          </ion-label>
+                      </ion-item>
+                  </ion-card>
                     
         
                 </ion-content> 
               </div>
             </ion-tab>
 
-<!-- Tab Bar -->
+  <!-- Tab Bar -->
 
             <ion-tab-bar slot="bottom">
               <ion-tab-button tab="home">
+                <ion-icon name="home-outline"></ion-icon>
+                Home
+              </ion-tab-button>
+              <ion-tab-button tab="news">
                 <ion-icon name="newspaper-outline"></ion-icon>
                 News
               </ion-tab-button>
-              <ion-tab-button tab="radio">
-                <ion-icon name="bug-outline"></ion-icon>
-                Home
-              </ion-tab-button>
-              <ion-tab-button tab="library">
+              <ion-tab-button tab="ideas">
                 <ion-icon name="sunny-outline"></ion-icon>
                 Ideas
               </ion-tab-button>
-
             </ion-tab-bar>
+
           </ion-tabs>
-          
+  
     </ion-app>
 
 </body>

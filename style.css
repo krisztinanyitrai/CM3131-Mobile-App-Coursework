@@ -117,3 +117,7 @@ ion-tab-bar {
 ion-card {
   border-radius: 30px;
 }
+
+a {
+  text-decoration: none;
+}

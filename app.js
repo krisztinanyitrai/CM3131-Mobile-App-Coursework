@@ -57,19 +57,71 @@
     document.getElementById('date').innerHTML = formattedToday;
 
 // Add points
+addPoints();
+
+function addPoints() {
+    // get all the ion-item elements
+    const items = document.querySelectorAll('#good-deed-card ion-item');
+  
+    // add a click event listener to each item
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        // get the ion-icon element and the ion-label element inside the item
+        const icon = item.querySelector('ion-icon');
+        const label = item.querySelector('ion-label');
+        
+        // toggle between the original icon and the checkmark circle icon
+        if (icon.getAttribute('name') === 'checkmark-circle') {
+          icon.setAttribute('name', 'checkmark-circle-outline');
+          // remove the additional label if it exists
+          const pointsLabel = item.querySelector('.points-label');
+          if (pointsLabel) {
+            pointsLabel.remove();
+          }
+        } else {
+          icon.setAttribute('name', 'checkmark-circle');
+          // add the additional label
+          label.insertAdjacentHTML('afterend', '<ion-label class="points-label">+1</ion-label>');
+        }
+      });
+    });
+  }
 
     const addPointsBtn = document.getElementById('add-points-btn');
     const pointsTotal = document.getElementById('points-total');
 
-    addPointsBtn.addEventListener('click', AddPoints)
+    addPointsBtn.addEventListener('click', AddPointsToTotal);
     
-    function AddPoints() {
+    function AddPointsToTotal() {
 
+        const pointsCount = document.querySelectorAll('.points-label');
         const currentPoints = parseInt(pointsTotal.textContent);
-        const newPoints = currentPoints + 15;
+        const newPoints = currentPoints + pointsCount.length;
 
         pointsTotal.textContent = newPoints;
-    };
+
+        //set labels to original state
+        // get all the ion-item elements
+        const items = document.querySelectorAll('#good-deed-card ion-item');
+    
+        // add a click event listener to each item
+        items.forEach((item) => {
+            // get the ion-icon element and the ion-label element inside the item
+            const icon = item.querySelector('ion-icon[name="checkmark-circle"]');
+
+            // toggle between the original icon and the checkmark circle icon
+            if (icon) {
+            icon.setAttribute('name', 'checkmark-circle-outline');}
+            // remove the additional label if it exists
+            const pointsLabel = item.querySelector('.points-label');
+            if (pointsLabel) {
+                pointsLabel.remove();
+            }
+            
+        });
+        };
+
+    
 
 
 // News API
@@ -80,7 +132,7 @@
 
     const url = 'https://newsapi.org/v2/everything?' +
           'q=(uplifting AND (charity OR inspirational OR sustainability OR ethical OR "positive news" OR uplifting OR nonprofit OR volunteerring OR fundraising OR "humanitarian aid" OR "community development"))&' +
-          'sortBy=relevancy&' +
+          'sortBy=publishedAt&' +
           'apiKey=6400460033fb46179b5edf2c0cbaecad';
 
     const req = new Request(url);
@@ -105,7 +157,7 @@
         for (let i = 0; i < 10; i++) {
             let article = ArticlesArray[i];
             
-            // Create the HTML for the ion-card using template literals
+            // Create the HTML for the ion-card
             let cardHtml = `
             <a href="${article.url}">
             <ion-card>
@@ -131,4 +183,4 @@
         newsContainer.innerHTML = cardsHtml;
     }
 
-// NEXT UP: fix grass, add points, make articles savable
+// NEXT UP: make articles savable, blogs clickable, display graph(?)

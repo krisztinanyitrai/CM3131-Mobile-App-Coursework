@@ -56,6 +56,10 @@
   margin-top: -29px;
 }
 
+.points-label {
+  text-align: right;
+  max-width: 30px;
+}
 
 /* Images */
 

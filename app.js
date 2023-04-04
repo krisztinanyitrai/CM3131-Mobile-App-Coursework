@@ -159,20 +159,20 @@ function addPoints() {
             
             // Create the HTML for the ion-card
             let cardHtml = `
-            <a href="${article.url}">
+            
             <ion-card>
                 <ion-item lines="none">
                 <ion-thumbnail slot="start">
                     <img id="news-image" alt="News Article Image" src="${article.urlToImage || 'https://ionicframework.com/docs/img/demos/thumbnail.svg'}" />
                 </ion-thumbnail>
-                <ion-label>
+                <ion-label onclick="window.open('${article.url}', '_blank')">
                     <h2 id="news-title" class="ion-text-wrap">${article.title}</h2>
                     <p id="source-and-date">${article.source.Name} | ${new Date(article.publishedAt).toLocaleDateString()}</p>
                 </ion-label>
-                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon name="heart-outline" onclick="ToggleHeart(this)"></ion-icon>
                 </ion-item>
             </ion-card>
-            </a>
+            
             `;
             
             // Append the HTML for the ion-card to the cardsHtml string
@@ -183,4 +183,82 @@ function addPoints() {
         newsContainer.innerHTML = cardsHtml;
     }
 
-// NEXT UP: make articles savable, blogs clickable, display graph(?)
+
+// Local storage of points
+
+const PointsTotal = document.getElementById("points-total");
+const SaveBtn = document.getElementById("add-points-btn");
+
+const saveToLocalStorage = () => {
+    localStorage.setItem('textinput', PointsTotal.textContent);
+    console.log("Saved to Local Storage");
+}
+
+const getLocalStorage = () => {
+    const pointsNumber = localStorage.getItem('textinput');
+    console.log("Total points in local storage: ", pointsNumber);
+    console.log("Local storage: ", getLocalStorage);
+
+}
+
+SaveBtn.addEventListener('click', saveToLocalStorage);
+SaveBtn.addEventListener('click', getLocalStorage);
+
+const pointsNumber = localStorage.getItem('textinput');
+  if (pointsNumber > 0) {
+    PointsTotal.textContent = pointsNumber;
+  };
+
+
+// Make hearts clickable
+        
+
+    // toggle between the outline and the filled heart icon
+    function ToggleHeart(icon) {
+        if (icon.name === 'heart-outline') {
+          icon.name = 'heart';
+        } else {
+          icon.name = 'heart-outline';
+        }
+      };
+
+
+// Blogs displayed on new pages
+
+  //Get blog data from cards
+  document.querySelectorAll('ion-card ion-label').forEach(label => {
+    label.addEventListener('click', () => {
+        const card = label.closest('ion-card');
+        const blogTitle = card.dataset.title;
+        const blogImg = card.dataset.img;
+        const unformattedText = card.dataset.txt;
+        const blogTxt = unformattedText.replace(/\#/g, "<br>");
+        openBlog(blogTitle, blogImg, blogTxt);
+    });
+  });
+
+  //Store original Ideas page in a constant
+  const originalHTML = document.getElementById("ideas-page").innerHTML;
+
+  //Change innerHTML of Ideas page
+  function openBlog(blogTitle, blogImg, blogTxt) {
+    const ideasPage = document.getElementById("ideas-page");
+    ideasPage.innerHTML = `
+    <ion-content>
+        <ion-button class="ion-padding" color="none" style="--color:black" onclick='restoreOriginal()'><ion-icon slot="icon-only" name="arrow-back"></ion-icon></ion-button>
+        <ion-card>
+            <img style="object-fit:cover;width:100%;height:200px;" alt="Inspiring image" src="${blogImg}" />
+            <h2 class="ion-padding" style="margin:0;">${blogTitle}</h2>
+            <p class="ion-padding" style="margin:0;">${blogTxt}</p>
+        </ion-card>
+    </ion-content>
+    `;
+  };
+
+  //Restore original Ideas page
+  function restoreOriginal() {
+    document.getElementById("ideas-page").innerHTML = originalHTML;
+  }
+
+
+// NEXT UP: add blog data to all blog items, display graph(?), fix original Ideas HTML not clickable

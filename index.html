@@ -35,7 +35,7 @@
 
                   <img id="flowers" src="img/flowerfield.png">
 
-                  <h4 id="points-title" >Your Bee Good Points:</h4>
+                  <h4 id="points-title" >Your <img src="img/bee-icon.png"> Good Points:</h4>
                   <p id="points-total">0</p>
 
                   <ion-card id="good-deed-card" class="green-border">
@@ -84,36 +84,6 @@
                     </ion-row>
                   </ion-grid>
 
-                  <h2 class="left-padding">Saved</h2>
-
-                  <ion-card>
-                    <ion-item lines="none">
-                        <ion-thumbnail slot="start">
-                            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                          </ion-thumbnail>
-                        <ion-label>
-                          <h2>Regulators urge safe giving to support Turkey-Syria earthquake relief effort</h2>
-                          <p class="ion-text-wrap">Regulators urge public to 'give safely' when looking to support international aid efforts in...</p>
-                        </ion-label>
-                        <ion-icon name="heart"></ion-icon>
-                      </ion-item>
-                </ion-card>
-
-                <ion-card>
-                  <ion-item lines="none">
-                      <ion-label class="ion-text-wrap"><h2>Ways to Give to Charity Without Donating Money</h2></ion-label> 
-                      <ion-icon name="heart"></ion-icon>
-                  </ion-item>
-                  <ion-item lines="none">
-                      <ion-thumbnail slot="start">
-                          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                        </ion-thumbnail>
-                      <ion-label>
-                        <p class="ion-text-wrap">Charitable giving is a great way to support a cause you trust, but you don't always need to donate money to give back.</p>
-                      </ion-label>
-                  </ion-item>
-              </ion-card>
-
                 </ion-content>  
               </div>
 
@@ -146,7 +116,16 @@
                     <h1 class="ion-padding">Ideas</h1>
                     <div class="container">
 
-                      <ion-card class="green-border">
+                      <ion-card class="green-border" data-title="How to Be Good?" data-img="img/5.jpg" data-txt="Look no further! We have compiled all the ways you can have a good impact in the world in this guide. From charity options to recycling and volunteering you’ll find what kind of activity best suits you no matter your physical location, your financial background or motivation. 
+                                    ## Great, let's dive into all the ways you can make a positive impact on the world:
+                                    ## 1. Educate yourself and others - One of the best ways to make a difference is by educating yourself about important issues and then sharing that knowledge with others. Whether it's climate change, social justice, or other pressing issues, the more people who are informed about them, the better chance we have of creating positive change.
+                                    ## 2. Support local businesses - Supporting local businesses is a great way to help your community thrive while also reducing your environmental impact. By choosing to shop at local stores, you're keeping money in your community and supporting small business owners.
+                                    ## 3. Reduce your waste - We can all do our part to reduce the amount of waste we produce. This can be as simple as recycling, using reusable bags and water bottles, and composting. By reducing our waste, we're helping to reduce the amount of pollution in our environment.
+                                    ## 4. Donate to charity - Donating to a charity that supports a cause you care about is a great way to make a difference, no matter your financial situation. Even small donations can add up and make a big impact.
+                                    ## 5. Volunteer - Volunteering your time is another great way to make a difference in your community. Whether it's volunteering at a local soup kitchen, animal shelter, or community garden, your time and energy can make a big difference.
+                                    ## 6. Advocate for change - If you're passionate about a particular issue, consider becoming an advocate for change. This could mean writing letters to your elected officials, participating in protests and marches, or simply talking to friends and family about the issue.
+                                    ## 7. Be mindful of your carbon footprint - We all have a carbon footprint, which is the amount of carbon emissions we produce through our daily activities. By being mindful of your carbon footprint and making small changes, such as using public transportation, turning off lights when you leave a room, and eating less meat, you can help reduce your impact on the environment.
+                                    ##Remember, even small actions can make a big difference. By making a commitment to do your part, you can help create a better world for future generations.##">
                           <ion-item lines="none">
                               <ion-label class="ion-text-wrap"><h2>How to <img src="img/bee-icon.png"> Good?</h2></ion-label> 
                           </ion-item>
@@ -162,14 +141,14 @@
                     
                     </div>
 
-                    <ion-card>
+                    <ion-card data-title="The Ripple Effect of Good Deeds: Spreading Kindness and Joy" data-img="img/1.jpg" data-txt="Have you ever experienced the joy of doing a good deed? Perhaps you helped a stranger carry their groceries, gave up your seat on the bus for someone in need...">
                         <ion-item lines="none">
                             <ion-label class="ion-text-wrap"><h2>The Ripple Effect of Good Deeds: Spreading Kindness and Joy</h2></ion-label> 
-                            <ion-icon name="heart-outline"></ion-icon>
+                            <ion-icon name="heart-outline" onclick="ToggleHeart(this)"></ion-icon>
                         </ion-item>
                         <ion-item lines="none">
                             <ion-thumbnail slot="start">
-                                <img alt="Silhouette of mountains" src="img/1.jpg" />
+                                <img alt="Inspiring image" src="img/1.jpg" />
                               </ion-thumbnail>
                             <ion-label>
                               <p class="ion-text-wrap">Have you ever experienced the joy of doing a good deed? Perhaps you helped a stranger carry their groceries, gave up your seat on the bus for someone in need...</p>
@@ -180,11 +159,11 @@
                     <ion-card>
                       <ion-item lines="none">
                           <ion-label class="ion-text-wrap"><h2>10 Simple Acts of Kindness to Brighten Someone's Day</h2></ion-label> 
-                          <ion-icon name="heart-outline"></ion-icon>
+                          <ion-icon name="heart-outline" onclick="ToggleHeart(this)"></ion-icon>
                       </ion-item>
                       <ion-item lines="none">
                           <ion-thumbnail slot="start">
-                              <img alt="Silhouette of mountains" src="img/2.jpg" />
+                              <img alt="Inspiring image" src="img/2.jpg" />
                             </ion-thumbnail>
                           <ion-label>
                             <p class="ion-text-wrap">In today's world, it's easy to get caught up in our own lives and forget the impact we can have on others. But by performing simple acts of kindness...</p>
@@ -195,11 +174,11 @@
                     <ion-card>
                       <ion-item lines="none">
                           <ion-label class="ion-text-wrap"><h2>From Good Intentions to Good Actions: Practical Tips for Making a Positive Impact</h2></ion-label> 
-                          <ion-icon name="heart-outline"></ion-icon>
+                          <ion-icon name="heart-outline" onclick="ToggleHeart(this)"></ion-icon>
                       </ion-item>
                       <ion-item lines="none">
                           <ion-thumbnail slot="start">
-                              <img alt="Silhouette of mountains" src="img/3.jpg" />
+                              <img alt="Inspiring image" src="img/3.jpg" />
                             </ion-thumbnail>
                           <ion-label>
                             <p class="ion-text-wrap">We all have good intentions, but sometimes it can be difficult to turn those intentions into concrete actions that make a positive impact in the world.</p>
@@ -210,11 +189,11 @@
                     <ion-card>
                       <ion-item lines="none">
                           <ion-label class="ion-text-wrap"><h2>The Importance of Giving Back: 5 Ways to Make a Positive Impact in Your Community</h2></ion-label> 
-                          <ion-icon name="heart-outline"></ion-icon>
+                          <ion-icon name="heart-outline" onclick="ToggleHeart(this)"></ion-icon>
                       </ion-item>
                       <ion-item lines="none">
                           <ion-thumbnail slot="start">
-                              <img alt="Silhouette of mountains" src="img/4.jpg" />
+                              <img alt="Inspiring image" src="img/4.jpg" />
                             </ion-thumbnail>
                           <ion-label>
                             <p class="ion-text-wrap">Giving back to your community can have a positive impact on both you and those around you. It can bring people together, foster a sense of unity and help...</p>
@@ -225,6 +204,7 @@
                 </ion-content> 
               </div>
             </ion-tab>
+
 
   <!-- Tab Bar -->
 
@@ -241,6 +221,7 @@
                 <ion-icon name="sunny-outline"></ion-icon>
                 Ideas
               </ion-tab-button>
+
             </ion-tab-bar>
 
           </ion-tabs>
@@ -249,6 +230,6 @@
 
 </body>
 
-<script src="app.js"></script> 
+<script src="app.js"></script>  
 
 </html>

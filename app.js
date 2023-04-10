@@ -56,71 +56,93 @@
 
     document.getElementById('date').innerHTML = formattedToday;
 
-// Add points
-addPoints();
 
-function addPoints() {
-    // get all the ion-item elements
-    const items = document.querySelectorAll('#good-deed-card ion-item');
-  
-    // add a click event listener to each item
-    items.forEach((item) => {
-      item.addEventListener('click', () => {
-        // get the ion-icon element and the ion-label element inside the item
-        const icon = item.querySelector('ion-icon');
-        const label = item.querySelector('ion-label');
-        
-        // toggle between the original icon and the checkmark circle icon
-        if (icon.getAttribute('name') === 'checkmark-circle') {
-          icon.setAttribute('name', 'checkmark-circle-outline');
-          // remove the additional label if it exists
-          const pointsLabel = item.querySelector('.points-label');
-          if (pointsLabel) {
-            pointsLabel.remove();
-          }
-        } else {
-          icon.setAttribute('name', 'checkmark-circle');
-          // add the additional label
-          label.insertAdjacentHTML('afterend', '<ion-label class="points-label">+1</ion-label>');
-        }
-      });
-    });
-  }
 
-    const addPointsBtn = document.getElementById('add-points-btn');
-    const pointsTotal = document.getElementById('points-total');
+// Points counter
 
-    addPointsBtn.addEventListener('click', AddPointsToTotal);
-    
-    function AddPointsToTotal() {
+  addPoints();
 
-        const pointsCount = document.querySelectorAll('.points-label');
-        const currentPoints = parseInt(pointsTotal.textContent);
-        const newPoints = currentPoints + pointsCount.length;
+  function addPoints() {
+      const items = document.querySelectorAll('#good-deed-card ion-item');
 
-        pointsTotal.textContent = newPoints;
-
-        //set labels to original state
-        // get all the ion-item elements
-        const items = document.querySelectorAll('#good-deed-card ion-item');
-    
-        // add a click event listener to each item
-        items.forEach((item) => {
-            // get the ion-icon element and the ion-label element inside the item
-            const icon = item.querySelector('ion-icon[name="checkmark-circle"]');
-
-            // toggle between the original icon and the checkmark circle icon
-            if (icon) {
-            icon.setAttribute('name', 'checkmark-circle-outline');}
+      items.forEach((item) => {
+        item.addEventListener('click', () => {
+          const icon = item.querySelector('ion-icon');
+          const label = item.querySelector('ion-label');
+          
+          // change checkmark icon on click
+          if (icon.getAttribute('name') === 'checkmark-circle') {
+            icon.setAttribute('name', 'checkmark-circle-outline');
             // remove the additional label if it exists
             const pointsLabel = item.querySelector('.points-label');
             if (pointsLabel) {
-                pointsLabel.remove();
+              pointsLabel.remove();
             }
-            
+          } else {
+            icon.setAttribute('name', 'checkmark-circle');
+            // add the additional label
+            label.insertAdjacentHTML('afterend', '<ion-label class="points-label">+1</ion-label>');
+          }
         });
-        };
+      });
+    }
 
+    // Add points to total
+      const addPointsBtn = document.getElementById('add-points-btn');
+      const pointsTotal = document.getElementById('points-total');
+
+      addPointsBtn.addEventListener('click', AddPointsToTotal);
+      
+      function AddPointsToTotal() {
+
+          const pointsCount = document.querySelectorAll('.points-label');
+          const currentPoints = parseInt(pointsTotal.textContent);
+          const newPoints = currentPoints + pointsCount.length;
+
+          pointsTotal.textContent = newPoints;
+
+          // set labels to original state
+          const items = document.querySelectorAll('#good-deed-card ion-item');
+      
+          items.forEach((item) => {
+              const icon = item.querySelector('ion-icon[name="checkmark-circle"]');
+
+              // restore original checkmark circle icon
+              if (icon) {
+              icon.setAttribute('name', 'checkmark-circle-outline');}
+              // remove the additional label
+              const pointsLabel = item.querySelector('.points-label');
+              if (pointsLabel) {
+                  pointsLabel.remove();
+              }
+              
+          });
+          };
+
+
+// Local storage of points
+
+    const PointsTotal = document.getElementById("points-total");
+    const SaveBtn = document.getElementById("add-points-btn");
+
+    const saveToLocalStorage = () => {
+        localStorage.setItem('textinput', PointsTotal.textContent);
+        //console.log("Saved to Local Storage");
+    }
+
+    const getLocalStorage = () => {
+        const pointsNumber = localStorage.getItem('textinput');
+        console.log("Total points in local storage: ", pointsNumber);
+
+    }
+
+    SaveBtn.addEventListener('click', saveToLocalStorage);
+    SaveBtn.addEventListener('click', getLocalStorage);
+
+    const pointsNumber = localStorage.getItem('textinput');
+      if (pointsNumber > 0) {
+        PointsTotal.textContent = pointsNumber;
+      };
     
 
 
@@ -129,7 +151,8 @@ function addPoints() {
     const newsImage = document.getElementById("news-image");
     const newsTitle = document.getElementById("news-title");
     const newsSourceDate = document.getElementById("source-and-date");
-
+    
+    // Get articles from API
     const url = 'https://newsapi.org/v2/everything?' +
           'q=(uplifting AND (charity OR inspirational OR sustainability OR ethical OR "positive news" OR uplifting OR nonprofit OR volunteerring OR fundraising OR "humanitarian aid" OR "community development"))&' +
           'sortBy=publishedAt&' +
@@ -146,18 +169,16 @@ function addPoints() {
     .catch(error => console.log(error));
 
     const newsContainer = document.getElementById("news-container");
-
+    
+    // Add data to News tab using cards
     function UpdateDisplay(data) {
         let ArticlesArray = data.articles;
-        
-        // Initialize an empty string to hold the HTML for the ion-cards
+
         let cardsHtml = "";
 
-        // Loop through the first 10 articles in the array
         for (let i = 0; i < 10; i++) {
             let article = ArticlesArray[i];
             
-            // Create the HTML for the ion-card
             let cardHtml = `
             
             <ion-card>
@@ -175,45 +196,15 @@ function addPoints() {
             
             `;
             
-            // Append the HTML for the ion-card to the cardsHtml string
             cardsHtml += cardHtml;
         }
         
-        // Set the innerHTML of the newsContainer element to the cardsHtml string
         newsContainer.innerHTML = cardsHtml;
     }
 
 
-// Local storage of points
-
-const PointsTotal = document.getElementById("points-total");
-const SaveBtn = document.getElementById("add-points-btn");
-
-const saveToLocalStorage = () => {
-    localStorage.setItem('textinput', PointsTotal.textContent);
-    console.log("Saved to Local Storage");
-}
-
-const getLocalStorage = () => {
-    const pointsNumber = localStorage.getItem('textinput');
-    console.log("Total points in local storage: ", pointsNumber);
-    console.log("Local storage: ", getLocalStorage);
-
-}
-
-SaveBtn.addEventListener('click', saveToLocalStorage);
-SaveBtn.addEventListener('click', getLocalStorage);
-
-const pointsNumber = localStorage.getItem('textinput');
-  if (pointsNumber > 0) {
-    PointsTotal.textContent = pointsNumber;
-  };
-
-
 // Make hearts clickable
         
-
-    // toggle between the outline and the filled heart icon
     function ToggleHeart(icon) {
         if (icon.name === 'heart-outline') {
           icon.name = 'heart';
@@ -231,9 +222,10 @@ const pointsNumber = localStorage.getItem('textinput');
         const card = label.closest('ion-card');
         const blogTitle = card.dataset.title;
         const blogImg = card.dataset.img;
+        const blogImgSrc = card.dataset.src;
         const unformattedText = card.dataset.txt;
         const blogTxt = unformattedText.replace(/\#/g, "<br>");
-        openBlog(blogTitle, blogImg, blogTxt);
+        openBlog(blogTitle, blogImg, blogImgSrc, blogTxt);
     });
   });
 
@@ -241,13 +233,14 @@ const pointsNumber = localStorage.getItem('textinput');
   const originalHTML = document.getElementById("ideas-page").innerHTML;
 
   //Change innerHTML of Ideas page
-  function openBlog(blogTitle, blogImg, blogTxt) {
+  function openBlog(blogTitle, blogImg, blogImgSrc, blogTxt) {
     const ideasPage = document.getElementById("ideas-page");
     ideasPage.innerHTML = `
     <ion-content>
         <ion-button class="ion-padding" color="none" style="--color:black" onclick='restoreOriginal()'><ion-icon slot="icon-only" name="arrow-back"></ion-icon></ion-button>
         <ion-card>
             <img style="object-fit:cover;width:100%;height:200px;" alt="Inspiring image" src="${blogImg}" />
+            <p style="padding-left:15px">${blogImgSrc}</p>
             <h2 class="ion-padding" style="margin:0;">${blogTitle}</h2>
             <p class="ion-padding" style="margin:0;">${blogTxt}</p>
         </ion-card>
@@ -258,7 +251,4 @@ const pointsNumber = localStorage.getItem('textinput');
   //Restore original Ideas page
   function restoreOriginal() {
     document.getElementById("ideas-page").innerHTML = originalHTML;
-  }
-
-
-// NEXT UP: add blog data to all blog items, display graph(?), fix original Ideas HTML not clickable
+  };
